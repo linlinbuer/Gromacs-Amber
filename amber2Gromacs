@@ -1,13 +1,13 @@
 antechamber -i peg.log -fi gout -o pok.mol2 -fo mol2 -at gaff -c resp
 
 resp -O -i ANTECHAMBER_RESP1.IN -o step1.respout -e ANTECHAMBER.ESP -t step1.crg
-resp -O -i ANTECHAMBER_RESP1.IN -o step2.respout -e ANTECHAMBER.ESP -t step2.crg -q step1.crg
+resp -O -i ANTECHAMBER_RESP2.IN -o step2.respout -e ANTECHAMBER.ESP -t step2.crg -q step1.crg
 
 
 
 antechamber -i peg.log -fi gout -o peg.ac -fo ac -dr no
 
-antechamber -i peg.ac -fi ac -o peg.mol2 -fo mol2 -c rc -cf step2.crg -at amber
+antechamber -i peg.ac -fi ac -o peg.mol2 -fo mol2 -c rc -cf step2.crg -at amber -dr no
 
 #atom type in amber —upper case atom name (amber style)
 
@@ -19,4 +19,4 @@ sys=loadmol2 peg.mol2
 
 check sys
 
-saveamberparm MOL (sys) hpo4.prmtop hpo4.inpcrd
+saveamberparm sys peg.prmtop peg.inpcrd
