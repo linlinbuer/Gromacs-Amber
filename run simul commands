@@ -1,0 +1,9 @@
+#Useful gromacs commands of simulation
+
+##minimisation of system
+
+###Preparation of total input file (*tpr) -- the only input file to run the simulation
+gmx grompp -c sysfin.gro -p topol.top -f min.mdp -o min.tpr
+
+###Run the simulation and define the name of the output files
+gmx mdrun -deffnm min #define output name min.*
