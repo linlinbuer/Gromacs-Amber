@@ -7,3 +7,5 @@ gmx grompp -c sysfin.gro -p topol.top -f min.mdp -o min.tpr
 
 ###Run the simulation and define the name of the output files
 gmx mdrun -deffnm min #define output name min.*
+
+###NVT and NVE commands are the same, just need to change the name
